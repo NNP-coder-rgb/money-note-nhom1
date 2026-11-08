@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechMarket - Sàn Đồ Điện Tử & Thiết Bị Công Nghệ Kiểm Định</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+</head>
+<body>
+
+  <!-- SITE HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="brand-logo">
+        <span>⚡ TechMarket</span>
+        <span class="brand-badge">Certified Tech</span>
+      </a>
+
+      <div class="search-bar">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="Tìm kiếm iPhone 15, MacBook M3, Sony A7 IV, AirPods...">
+      </div>
+
+      <div class="header-actions">
+        <button class="btn-header" id="btnFilterUsed">🔍 Hàng kiểm định</button>
+        <button class="btn-header primary">🛒 Giỏ hàng (<span id="cartCount">0</span>)</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- BANNER THỐNG KÊ TRANG CHỦ -->
+  <section class="stats-banner">
+    <div class="container">
+      <div class="stats-grid" id="homeStatsContainer">
+        <!-- Rendered by JS from mockHomeStats -->
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+    <!-- DANH MỤC SẢN PHẨM -->
+    <section class="section-categories">
+      <div class="section-title-wrap">
+        <h2 class="section-title">📂 Danh mục công nghệ</h2>
+        <span style="font-size: 0.88rem; color: var(--text-secondary);">5 danh mục điện tử chính</span>
+      </div>
+      <div class="categories-bar" id="categoriesContainer">
+        <!-- Rendered by JS from mockCategories -->
+      </div>
+    </section>
+
+    <!-- FLASH SALE SECTION CÓ ĐỒNG HỒ ĐẾM NGƯỢC -->
+    <section class="flash-sale-wrapper">
+      <div class="flash-header">
+        <div class="flash-title">
+          <span>🔥 FLASH SALE GIỜ VÀNG</span>
+        </div>
+        <div class="countdown-box">
+          <span>KẾT THÚC TRONG:</span>
+          <div class="countdown-digits">
+            <span class="digit" id="timerHours">08</span> :
+            <span class="digit" id="timerMinutes">45</span> :
+            <span class="digit" id="timerSeconds">30</span>
+          </div>
+        </div>
+      </div>
+      <div class="flash-grid" id="flashSaleContainer">
+        <!-- Rendered by JS from mockFlashSales -->
+      </div>
+    </section>
+
+    <!-- CATALOG SẢN PHẨM TOÀN DIỆN (20 SẢN PHẨM MỚI & CŨ) -->
+    <section class="catalog-section">
+      <div class="section-title-wrap">
+        <h2 class="section-title">📦 Danh mục sản phẩm (Catalog)</h2>
+        <span style="font-size: 0.9rem; color: var(--text-secondary);" id="productCountBadge">Hiển thị 20 sản phẩm</span>
+      </div>
+
+      <div class="catalog-controls">
+        <div class="filter-tabs" id="typeFilterTabs">
+          <button class="tab-btn active" data-type="all">Tất cả sản phẩm (20)</button>
+          <button class="tab-btn" data-type="new">✨ Hàng mới 100% (10)</button>
+          <button class="tab-btn" data-type="used">🛡️ Đồ cũ đã kiểm định (10)</button>
+        </div>
+
+        <select class="sort-select" id="sortSelect">
+          <option value="default">Sắp xếp: Mặc định</option>
+          <option value="price-asc">Giá: Thấp đến Cao</option>
+          <option value="price-desc">Giá: Cao đến Thấp</option>
+          <option value="rating-desc">Đánh giá cao nhất</option>
+        </select>
+      </div>
+
+      <div class="catalog-grid" id="catalogContainer">
+        <!-- Rendered by JS from mockProducts -->
+      </div>
+    </section>
+  </main>
+
+  <!-- MODAL XEM CHI TIẾT 15 BƯỚC KIỂM ĐỊNH CHO ĐỒ CŨ -->
+  <div class="modal-overlay" id="inspectionModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div>
+          <h3 id="modalProductName" style="font-size: 1.15rem; font-weight: 800; color: var(--text-primary);">Chứng thư kiểm định thiết bị</h3>
+          <p style="font-size: 0.82rem; color: var(--text-secondary); margin-top: 4px;">Quy trình 15 bước kiểm tra phần cứng độc quyền TechMarket Lab</p>
+        </div>
+        <span class="modal-close-btn" id="modalCloseBtn">&times;</span>
+      </div>
+
+      <div class="inspect-summary-card">
+        <div>
+          <div style="font-size: 0.8rem; color: var(--text-secondary);">MÃ SERIAL ĐỊNH DANH</div>
+          <div id="modalSerial" style="font-weight: 800; font-family: monospace; font-size: 1.05rem; color: var(--primary);">VN-AP14-001</div>
+        </div>
+        <div>
+          <div style="font-size: 0.8rem; color: var(--text-secondary);">ĐỘ MỚI (TÌNH TRẠNG)</div>
+          <div id="modalCondition" style="font-weight: 800; font-size: 1.05rem; color: var(--accent-used);">98% Like New</div>
+        </div>
+        <div>
+          <div style="font-size: 0.8rem; color: var(--text-secondary);">TRẠNG THÁI</div>
+          <div style="font-weight: 800; font-size: 0.9rem; color: var(--accent-verified);">🛡️ ĐÃ KIỂM ĐỊNH</div>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 12px; font-weight: 700; font-size: 0.95rem;">Chi tiết 15 tiêu chí kiểm định:</div>
+      <div class="inspect-steps-list" id="modalStepsList">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- SITE FOOTER CÁC CỘT NỘI DUNG -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top" id="footerTopContainer">
+        <!-- Rendered by JS from mockFooterData -->
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 TechMarket Inc. Mã Task kiểm tra: <strong>TF252F3</strong>. Nền tảng giao dịch thiết bị điện tử kiểm định số 1.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT LOGIC -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
